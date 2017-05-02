@@ -36,14 +36,14 @@ define archiveplus (
     # call the archive defined type to do the heavy lifting
     archive { "${staging_path}/${app_name}/${archive}":
       allow_insecure => $allow_insecure,
-      archive_path   => ${archive_path},
+      archive_path   => $archive_path,
       checksum       => $checksum,
       checksum_type  => $checksum_type
       cleanup        => $cleanup,
       creates        => $creates,
       ensure         => $ensure,
       extract        => true,
-      extract_path   => ${extract_path},
+      extract_path   => $extract_path,
       source         => $source,
     }
 
@@ -61,14 +61,14 @@ define archiveplus (
     # call the archive defined type to do the heavy lifting
     archive { "${staging_path}/${app_name}/${archive}":
       allow_insecure => $allow_insecure,
-      archive_path   => ${archive_path},
+      archive_path   => $archive_path,
       checksum       => $checksum,
       checksum_type  => $checksum_type
       cleanup        => $cleanup,
       creates        => $creates,
       ensure         => $ensure,
       extract        => true,
-      extract_path   => ${extract_path},
+      extract_path   => $extract_path,
       source         => $source,
     }
   }
