@@ -58,7 +58,7 @@ define archiveplus (
     # call the archive defined type to do the heavy lifting
     archive { "${staging_path}/${app_name}/${archive}":
       ensure         => present,
-      allow_insecure => $allow_insecure
+      allow_insecure => $allow_insecure,
       extract        => true,
       extract_path   => "${staging_path}/${app_name}",
       source         => $source,
