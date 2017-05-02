@@ -3,21 +3,21 @@
 #
 define archiveplus (
 
-  $archive       = undef,
-  $archive_path  = undef,
+  $archive        = undef,
+  $archive_path   = undef,
 
-  $app_name      = undef,
-  $allow_insecure = !hiera('sslverify'),
+  $app_name       = undef,
+  $allow_insecure = undef,
 
-  $source        = undef,
-  $extract       = true,
-  $extract_path  = undef,
+  $source         = undef,
+  $extract        = true,
+  $extract_path   = undef,
 
-  $checksum      = undef,
-  $checksum_type = undef,
+  $checksum       = undef,
+  $checksum_type  = undef,
 
-  $creates       = undef,
-  $cleanup       = true,
+  $creates        = undef,
+  $cleanup        = true,
 
   # NOTE: Windows only, command to run to finish installation
   # after extraction has been completed.
