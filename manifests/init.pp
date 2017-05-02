@@ -10,6 +10,7 @@ define archiveplus (
   $allow_insecure = undef,
 
   $source         = undef,
+  $ensure         = undef,
   $extract        = true,
   $extract_path   = undef,
 
@@ -33,7 +34,7 @@ define archiveplus (
 
     # call the archive defined type to do the heavy lifting
     archive { "${staging_path}/${app_name}/${archive}":
-      ensure         => present,
+      ensure         => $ensure,
       allow_insecure => $allow_insecure,
       extract        => true,
       extract_path   => "${staging_path}/${app_name}",
@@ -57,7 +58,7 @@ define archiveplus (
 
     # call the archive defined type to do the heavy lifting
     archive { "${staging_path}/${app_name}/${archive}":
-      ensure         => present,
+      ensure         => $ensure,
       allow_insecure => $allow_insecure,
       extract        => true,
       extract_path   => "${staging_path}/${app_name}",
