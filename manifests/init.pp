@@ -4,6 +4,10 @@
 define archiveplus (
 
   $archive       = undef,
+  $archive_path  = undef,
+
+  $app_name      = undef,
+
   $source        = undef,
   $extract       = true,
   $extract_path  = undef,
@@ -34,7 +38,9 @@ define archiveplus (
       extract_path   => "${staging_path}/${app_name}",
       source         => $source,
       creates        => $creates,
-      cleanup        => $cleanup
+      cleanup        => $cleanup,
+      checksum       => $checksum,
+      checksum_type  => $checksum_type
     }
 
     # run an exec to finish installation, make sure that the value of
@@ -56,7 +62,9 @@ define archiveplus (
       extract_path   => "${staging_path}/${app_name}",
       source         => $source,
       creates        => $creates,
-      cleanup        => $cleanup
+      cleanup        => $cleanup,
+      checksum       => $checksum,
+      checksum_type  => $checksum_type
     }
   }
   else {
