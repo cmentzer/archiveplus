@@ -3,13 +3,12 @@
 #
 define archiveplus (
 
-  $archive        = undef,
+  $source         = undef,
   $archive_path   = undef,
 
   $app_name       = undef,
   $allow_insecure = undef,
 
-  $source         = undef,
   $ensure         = undef,
   $extract        = true,
   $extract_path   = undef,
@@ -19,6 +18,8 @@ define archiveplus (
 
   $creates        = undef,
   $cleanup        = true,
+
+  $staging_path   = undef,
 
   # NOTE: Windows only, command to run to finish installation
   # after extraction has been completed.
@@ -34,15 +35,16 @@ define archiveplus (
 
     # call the archive defined type to do the heavy lifting
     archive { "${staging_path}/${app_name}/${archive}":
-      ensure         => $ensure,
       allow_insecure => $allow_insecure,
-      extract        => true,
-      extract_path   => "${staging_path}/${app_name}",
-      source         => $source,
-      creates        => $creates,
-      cleanup        => $cleanup,
+      archive_path   => ${archive_path},
       checksum       => $checksum,
       checksum_type  => $checksum_type
+      cleanup        => $cleanup,
+      creates        => $creates,
+      ensure         => $ensure,
+      extract        => true,
+      extract_path   => ${extract_path},
+      source         => $source,
     }
 
     # run an exec to finish installation, make sure that the value of
@@ -58,15 +60,16 @@ define archiveplus (
 
     # call the archive defined type to do the heavy lifting
     archive { "${staging_path}/${app_name}/${archive}":
-      ensure         => $ensure,
       allow_insecure => $allow_insecure,
-      extract        => true,
-      extract_path   => "${staging_path}/${app_name}",
-      source         => $source,
-      creates        => $creates,
-      cleanup        => $cleanup,
+      archive_path   => ${archive_path},
       checksum       => $checksum,
       checksum_type  => $checksum_type
+      cleanup        => $cleanup,
+      creates        => $creates,
+      ensure         => $ensure,
+      extract        => true,
+      extract_path   => ${extract_path},
+      source         => $source,
     }
   }
   else {
