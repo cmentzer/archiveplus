@@ -52,7 +52,7 @@ define archiveplus (
       unless  => $creates
     }
   }
-  elsif $facts['os']['family'] == 'RedHat' {
+  elsif $facts['osfamily'] == 'RedHat' {
 
     # call the archive defined type to do the heavy lifting
     archive { "${staging_path}/${app_name}/${archive}":
