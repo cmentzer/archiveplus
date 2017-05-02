@@ -24,7 +24,7 @@ define archiveplus (
 
 ) {
 
-  if $facts['os']['family'] == 'Windows' {
+  if $facts['osfamily'] == 'Windows' {
 
     # Include the archive class to ensure that appropriate tools are
     # installed.
