@@ -38,7 +38,7 @@ define archiveplus (
       allow_insecure => $allow_insecure,
       archive_path   => $archive_path,
       checksum       => $checksum,
-      checksum_type  => $checksum_type
+      checksum_type  => $checksum_type,
       cleanup        => $cleanup,
       creates        => $creates,
       ensure         => $ensure,
@@ -63,7 +63,7 @@ define archiveplus (
       allow_insecure => $allow_insecure,
       archive_path   => $archive_path,
       checksum       => $checksum,
-      checksum_type  => $checksum_type
+      checksum_type  => $checksum_type,
       cleanup        => $cleanup,
       creates        => $creates,
       ensure         => $ensure,
