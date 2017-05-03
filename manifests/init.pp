@@ -53,8 +53,8 @@ define archiveplus (
     exec { "finish_${app_name}_installation":
       command   => $install_exec,
       path      => 'C:\\Windows\\System32',
-      unless    => $creates
-      subscribe => Archive["${staging_path}/${app_name}/${archive}"] 
+      unless    => $creates,
+      subscribe => Archive["${staging_path}/${app_name}/${archive}"],
     }
   }
   elsif $facts['osfamily'] == 'RedHat' {
@@ -74,7 +74,7 @@ define archiveplus (
     }
   }
   else {
-    fail("Module $module_name} is not supported on ${$facts['os']['family']}") 
+    fail("Module $module_name} is not supported on ${$facts['os']['family']}")
   }
 }
 
