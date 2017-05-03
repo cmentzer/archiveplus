@@ -51,9 +51,10 @@ define archiveplus (
     # $creates is something that is created during installation, not
     # during download / extraction
     exec { "finish_${app_name}_installation":
-      command => $install_exec,
-      path    => 'C:\\Windows\\System32',
-      unless  => $creates
+      command   => $install_exec,
+      path      => 'C:\\Windows\\System32',
+      unless    => $creates
+      subscribe => Archive["${staging_path}/${app_name}/${archive}"] 
     }
   }
   elsif $facts['osfamily'] == 'RedHat' {
